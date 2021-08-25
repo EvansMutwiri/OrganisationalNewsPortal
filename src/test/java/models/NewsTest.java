@@ -1,17 +1,44 @@
 package models;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class NewsTest {
+    News newsAlpha = new News("Finance","make payments");
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() throws Exception {
+
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() throws Exception {
+    }
+
+    @Test
+    public void getHeading_ReturnsCorrectHeading_heading() throws Exception {
+        News news = newsAlpha;
+        assertEquals("Finance", news.getHeading());
+    }
+
+    @Test
+    public void getContentReturnsCorrectContent() throws Exception {
+        News news = newsAlpha;
+        assertEquals("make payments", newsAlpha.getContent());
+    }
+
+    @Test
+    public void setHeading_setsHeadingCorrectly_Marketing() throws Exception {
+        newsAlpha.setHeading("Marketing");
+        assertNotEquals("Information tech", newsAlpha.getHeading());
+    }
+
+    @Test
+    public void setContentCorrectly() throws Exception {
+        newsAlpha.setContent("advertise");
+        assertNotEquals("make payments", newsAlpha.getContent());
     }
 }
