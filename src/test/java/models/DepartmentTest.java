@@ -1,56 +1,56 @@
 package models;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class DepartmentTest {
+public class DepartmentTest {
 
-    Department deptAlpha = new Department("Finance", "make payments", 4);
-
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
     }
 
-    @AfterEach
+    @After
     public void tearDown() throws Exception {
     }
 
     @Test
-    public void getName_ReturnsCorrectName_name() throws Exception {
-        Department department = deptAlpha;
-        assertEquals("Finance", department.getName());
+    public void DepartmentInstantiatesCorrectly() throws Exception{
+        Department department =setupDepartment();
+        assertTrue(department instanceof Department);
+    }
+    @Test
+    public void getName() {
+        Department department =setupDepartment();
+        assertEquals("ICT", department.getName());
+    }
+    @Test
+    public void getDescription() {
+        Department department =setupDepartment();
+        assertEquals("ict support", department.getDescription());
+    }
+    @Test
+    public void getTotal_employees() {
+        Department department =setupDepartment();
+        assertEquals(15, department.getTotal_employees());
+    }
+    @Test
+    public void setName() {
+        Department department =setupDepartment();
+        department.setName("ICT");
+        assertNotEquals("accounts", department.getName());
     }
 
     @Test
-    public void getNoEmployees_returnsCorrect_noEmployees() throws Exception {
-        Department department = deptAlpha;
-        assertEquals(4, department.getNoEmployees());
+    public void setId() {
+        Department department =setupDepartment();
+        department.setId(5);
+        assertEquals(5, department.getId());
     }
-
-    @Test
-    public void getDescriptionReturnsCorrectDescription() throws Exception {
-        Department department = deptAlpha;
-        assertEquals("make payments", department.getDescription());
-    }
-
-    @Test
-    public void setName_setsNameCorrectly_Marketing() throws Exception {
-        deptAlpha.setName("Marketing");
-        assertNotEquals("Information tech", deptAlpha.getName());
-    }
-
-    @Test
-    public void setDescriptionCorrectly() throws Exception {
-        deptAlpha.setDescription("advertise");
-        assertNotEquals("make payments", deptAlpha.getDescription());
-    }
-
-    @Test
-    public void setNoEmployeesCorrectly() throws Exception {
-        deptAlpha.setNoEmployees(6);
-        assertNotEquals(4, deptAlpha.getNoEmployees());
+    //helper method
+    public Department setupDepartment(){
+        return new Department("ICT", "ict support", 15);
     }
 }
