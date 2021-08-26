@@ -3,23 +3,27 @@ package models;
 import java.util.Objects;
 
 public class Department {
+    private int id;
     private String name;
     private String description;
-    private int noEmployees;
-    private int id;
+    private int total_employees;
 
-    public Department(String name, String description, int noEmployees) {
+    public Department(String name, String description, int total_employees) {
         this.name = name;
         this.description = description;
-        this.noEmployees = noEmployees;
+        this.total_employees = total_employees;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
-    }
-
-    public int getNoEmployees() {
-        return noEmployees;
     }
 
     public void setName(String name) {
@@ -34,28 +38,26 @@ public class Department {
         this.description = description;
     }
 
-    public void setNoEmployees(int noEmployees) {
-        this.noEmployees = noEmployees;
+    public int getTotal_employees() {
+        return total_employees;
     }
 
-    public int getId() {
-        return id;
+    public void setTotal_employees(int total_employees) {
+        this.total_employees = total_employees;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Department)) return false;
         Department that = (Department) o;
-        return noEmployees == that.noEmployees && id == that.id && name.equals(that.name) && description.equals(that.description);
+        return total_employees == that.total_employees &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, noEmployees, id);
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        return Objects.hash(name, description, total_employees);
     }
 }
