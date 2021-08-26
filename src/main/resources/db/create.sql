@@ -19,4 +19,4 @@ CREATE TABLE IF NOT EXISTS users (
     position VARCHAR,
     department VARCHAR,
     role VARCHAR
-)
+);
