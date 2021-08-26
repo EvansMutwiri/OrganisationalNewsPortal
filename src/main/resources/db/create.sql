@@ -5,15 +5,13 @@ CREATE TABLE IF NOT EXISTS departments (
     name VARCHAR,
     description VARCHAR,
     noEmployees int
-
-)
+);
 
 CREATE TABLE IF NOT EXISTS news (
     id int serial PRIMARY KEY auto_increment,
     heading VARCHAR,
     content VARCHAR
-
-)
+);
 
 CREATE TABLE IF NOT EXISTS users (
     id int serial PRIMARY KEY auto_increment,
@@ -21,5 +19,4 @@ CREATE TABLE IF NOT EXISTS users (
     position VARCHAR,
     department VARCHAR,
     role VARCHAR
-
 )
