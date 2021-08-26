@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class NewsTest {
-    News newsAlpha = new News("Finance","make payments");
+    News newsAlpha = new News("Finance","make payments", "evans", 1);
 
     @Before
     public void setUp() throws Exception {
